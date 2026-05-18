@@ -1,0 +1,12 @@
+@<TRIPOS>MOLECULE
+ZN
+    1     0     1     0     0
+SMALL
+User Assigned Charge
+ 
+ 
+@<TRIPOS>ATOM
+  16258 ZN         10.3680    0.3690   -8.9690 ZN     1056 ZN       2.000000
+@<TRIPOS>BOND
+@<TRIPOS>SUBSTRUCTURE
+     1 ZN          1 TEMP              0 ****  ****    0 ROOT

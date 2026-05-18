@@ -1,0 +1,7 @@
+original_pdb ./TRIM24_tleap_in.pdb
+ion_ids 16253
+group_name ZN1
+ion_mol2files ZN1.mol2  # Generado a partir de ZN1.pdb con metalpdb2mol2.py
+ion_info ZN ZN Zn 2
+cut_off 3
+force_field ff14SB

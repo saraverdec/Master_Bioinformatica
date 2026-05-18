@@ -1,0 +1,188 @@
+# Cargamos el campo de fuerza
+source leaprc.protein.ff14SB
+
+# Cargamos el modelo de agua TIP3P
+source leaprc.water.tip3p
+
+addAtomTypes {
+  { "M1" "Zn" "sp3" }
+  { "Y1" "S"  "sp3" }
+  { "Y2" "S"  "sp3" }
+  { "Y3" "S"  "sp3" }
+  { "Y4" "S"  "sp3" }
+
+  { "Z1" "S"  "sp3" }
+  { "Z2" "S"  "sp3" }
+  { "Z3" "S"  "sp3" }
+  { "Z4" "S"  "sp3" }
+
+  { "X1" "S"  "sp3" }
+  { "X2" "S"  "sp3" }
+  { "X3" "N"  "sp2" }
+  { "X4" "N"  "sp2" }
+
+  { "A1" "S"  "sp3" }
+  { "A2" "N"  "sp2" }
+  { "A3" "S"  "sp3" }
+  { "A4" "S"  "sp3" }
+
+  { "B1" "S"  "sp3" }
+  { "B2" "S"  "sp3" }
+  { "B3" "N"  "sp2" }
+  { "B4" "N"  "sp2" }
+
+  { "D1" "S"  "sp3" }
+  { "D2" "S"  "sp3" }
+  { "D3" "N"  "sp2" }
+  { "D4" "S"  "sp3" }
+
+  { "E1" "S"  "sp3" }
+  { "E2" "S"  "sp3" }
+  { "E3" "S"  "sp3" }
+  { "E4" "S"  "sp3" }
+}
+# Cargamos los  parametros de los metales
+loadamberparams ZN1_mcpbpy_tleap_in.frcmod
+loadamberparams ZN2_mcpbpy_tleap_in.frcmod
+loadamberparams ZN3_mcpbpy_tleap_in.frcmod
+loadamberparams ZN4_mcpbpy_tleap_in.frcmod
+loadamberparams ZN5_mcpbpy_tleap_in.frcmod
+loadamberparams ZN6_mcpbpy_tleap_in.frcmod
+loadamberparams ZN7_mcpbpy_tleap_in.frcmod
+
+# Cargamos la estructura original
+unit = loadpdb TRIM24_tleap_in.pdb
+
+# Asignamos los tipos de atomo correctos
+set unit.56.SG type "Y1"
+set unit.59.SG type "Y2"
+set unit.78.SG type "Y3"
+set unit.81.SG type "Y4"
+set unit.1051.ZN type "M1"
+
+set unit.163.SG type "Z1"
+set unit.166.SG type "Z2"
+set unit.184.SG type "Z3"
+set unit.187.SG type "Z4"
+set unit.1052.ZN type "M2"
+
+set unit.176.SG type "X1"
+set unit.179.SG type "X2"
+set unit.191.NE2 type "X3"
+set unit.200.ND1 type "X4"
+set unit.1053.ZN type "M3"
+
+set unit.223.SG type "A1"
+set unit.226.ND1 type "A2"
+set unit.243.SG type "A3"
+set unit.246.SG type "A4"
+set unit.1054.ZN type "M4"
+
+set unit.235.SG type "B1"
+set unit.238.SG type "B2"
+set unit.251.ND1 type "B3"
+set unit.254.ND1 type "B4"
+set unit.1055.ZN type "M5"
+
+set unit.829.SG type "D1"
+set unit.832.SG type "D2"
+set unit.849.ND1 type "D3"
+set unit.852.SG type "D4"
+set unit.1056.ZN type "M6"
+
+set unit.841.SG type "E1"
+set unit.844.SG type "E2"
+set unit.867.SG type "E3"
+set unit.870.SG type "E4"
+set unit.1057.ZN type "M7"
+
+# Sitio 1 (Y1–Y4, M1): CYS 56, 59, 78, 81
+set unit.56.CB  type "2C"
+set unit.59.CB  type "2C"
+set unit.78.CB  type "2C"
+set unit.81.CB  type "2C"
+
+# Sitio 2 (Z1–Z4, M2): CYS 163, 166, 184, 187
+set unit.163.CB type "2C"
+set unit.166.CB type "2C"
+set unit.184.CB type "2C"
+set unit.187.CB type "2C"
+
+# Sitio 3 (X1–X2, M3): CYS 176, 179
+set unit.176.CB type "2C"
+set unit.179.CB type "2C"
+
+# Sitio 4 (A1–A4, M4): CYS 223, 243, 246 (+ la que falte si es CYM)
+set unit.223.CB type "2C"
+set unit.243.CB type "2C"
+set unit.246.CB type "2C"
+
+# Sitio 5 (B1–B4, M5): CYS 235, 238 (+ las que falten si son CYM)
+set unit.235.CB type "2C"
+set unit.238.CB type "2C"
+
+# Sitio 6 (D1–D4, M6): CYS 829, 832, 852, 867
+set unit.829.CB type "2C"
+set unit.832.CB type "2C"
+set unit.852.CB type "2C"
+set unit.867.CB type "2C"
+
+# Sitio 7 (E1–E4, M7): CYS 841, 844, 867, 870
+set unit.841.CB type "2C"
+set unit.844.CB type "2C"
+set unit.867.CB type "2C"
+set unit.870.CB type "2C"
+
+# Forzamos el tipo 2C en los carbonos beta de las CYS del sitio 7
+set unit.841.CB type "2C"
+set unit.844.CB type "2C"
+set unit.867.CB type "2C"
+set unit.870.CB type "2C"
+
+# Creamos los enlaces residuo-ZN
+bond unit.56.SG unit.1051.ZN
+bond unit.59.SG unit.1051.ZN
+bond unit.78.SG unit.1051.ZN
+bond unit.81.SG unit.1051.ZN
+
+bond unit.163.SG unit.1052.ZN
+bond unit.166.SG unit.1052.ZN
+bond unit.184.SG unit.1052.ZN
+bond unit.187.SG unit.1052.ZN
+
+bond unit.176.SG unit.1053.ZN
+bond unit.179.SG unit.1053.ZN
+bond unit.191.NE2 unit.1053.ZN
+bond unit.200.ND1 unit.1053.ZN
+
+bond unit.223.SG unit.1054.ZN
+bond unit.226.ND1 unit.1054.ZN
+bond unit.243.SG unit.1054.ZN
+bond unit.246.SG unit.1054.ZN
+
+bond unit.235.SG unit.1055.ZN
+bond unit.238.SG unit.1055.ZN
+bond unit.251.ND1 unit.1055.ZN
+bond unit.254.ND1 unit.1055.ZN
+
+bond unit.829.SG unit.1056.ZN
+bond unit.832.SG unit.1056.ZN
+bond unit.849.ND1 unit.1056.ZN
+bond unit.852.SG unit.1056.ZN
+
+bond unit.841.SG unit.1057.ZN
+bond unit.844.SG unit.1057.ZN
+bond unit.867.SG unit.1057.ZN
+bond unit.870.SG unit.1057.ZN
+
+# Adicionamos solvente explicito
+solvateBox unit TIP3PBOX 10.0
+
+# Adicionamos iones para neutralizar el sistema
+addIons unit Na+ 0
+
+# Guardamos los archivos de AMBER
+saveamberparm unit TRIM24.prmtop TRIM24.inpcrd
+savepdb unit TRIM24_tleap_out.pdb
+
+quit

@@ -1,0 +1,12 @@
+Minimizacion con restricciones
+ &cntrl
+   imin=1,          ! Minimizacion
+   maxcyc=5000,     ! Ciclos totales
+   ncyc=2500,       ! Primeros 2500 steepest descent, resto conjugate gradient
+   cut=10.0,        ! Corte no enlazado
+   ntb=1,           ! Sistema en caja periodica
+   ntr=1,           ! Activar restricciones
+   restraint_wt=10.0,     ! Peso de restriccion (fuerte)
+   restraintmask='!:WAT & !@H='   ! Restringe todo excepto agua e hidrogenos
+ /
+
