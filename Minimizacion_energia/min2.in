@@ -1,9 +1,0 @@
-Minimizacion sin restricciones
- &cntrl
-   imin=1,
-   maxcyc=3000,
-   ncyc=1500,
-   cut=10.0,
-   ntb=1,
-   ntr=0,
- /
